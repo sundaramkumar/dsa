@@ -8,11 +8,19 @@
  */
 
 function reverse(x: number): number {
+  const INT_MAX = Math.pow(2, 31) - 1; // maximum 32-bit signed integer value
+  const INT_MIN = -Math.pow(2, 31); // minimum 32-bit signed integer value
   const sign = x < 0 ? "-" : "";
   let revnumber = Math.abs(x).toString().split("").reverse().join("");
-  return Number(sign + revnumber);
+  const reversed = Number(sign + revnumber);
+  if (reversed > INT_MAX || reversed < INT_MIN) {
+    return 0;
+  }
+
+  return reversed;
 }
 
 reverse(123);
 reverse(-123);
 reverse(120);
+reverse(1534236469);
