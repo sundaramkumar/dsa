@@ -27,8 +27,10 @@
  * logger.shouldPrintMessage(10, "foo"); // 10 < 11, return false
  * logger.shouldPrintMessage(11, "foo"); // 11 >= 11, return true, next allowed timestamp for "foo" is 11 + 10 = 21
  */
+// solve using Map
 class Logger {
   map: Map<string, number>;
+
   constructor() {
     this.map = new Map<string, number>();
   }
